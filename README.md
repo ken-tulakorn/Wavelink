@@ -1,97 +1,48 @@
 # Important:
 
-Wavelink is no longer maintained. Visit [Lavalink Client](https://lavalink.dev/clients) for a list of current libraries.
-
-
-
+The original Wavelink library is no longer maintained. **This repository is a patched community fork** designed to keep Wavelink alive by adding support for Discord's DAVE (E2EE) voice update and Lavalink 4.2.1+.
 
 <div align="center">
-
 
 ![Logo](https://raw.githubusercontent.com/PythonistaGuild/Wavelink/master/logo.png)
 
 ![Python Version](https://img.shields.io/pypi/pyversions/Wavelink)
-[![PyPI - Version](https://img.shields.io/pypi/v/Wavelink)](https://pypi.org/project/wavelink/)
 [![Github License](https://img.shields.io/github/license/PythonistaGuild/Wavelink)](LICENSE)
-[![Lavalink Version](https://img.shields.io/badge/Lavalink-v4.0%2B-blue?color=%23FB7713)](https://lavalink.dev)
+[![Lavalink Version](https://img.shields.io/badge/Lavalink-v4.2.1%2B-blue?color=%23FB7713)](https://lavalink.dev)
 ![Lavalink Plugins](https://img.shields.io/badge/Lavalink_Plugins-Native_Support-blue?color=%2373D673)
-
 
 </div>
 
+Wavelink is a robust and powerful Lavalink wrapper for [Discord.py](https://github.com/Rapptz/discord.py). Wavelink features a fully asynchronous API that's intuitive and easy to use.
 
-Wavelink is a robust and powerful Lavalink wrapper for [Discord.py](https://github.com/Rapptz/discord.py)
-Wavelink features a fully asynchronous API that's intuitive and easy to use.
+---
 
+## 🌟 What is this fork?
+Since Discord's recent enforcement of the **DAVE (End-to-End Encryption)** voice system, Lavalink **v4.2.1+** strictly requires the `channelId` to be passed in the VoiceState payload. The original Wavelink library does not send this, resulting in the following error and a lack of audio output:
 
-# Migrating from Version 2 to Version 3:
+`HttpMessageNotReadableException: Field 'channelId' is required... but it was missing`
 
-[Migrating Guide](https://wavelink.dev/en/latest/migrating.html)
-
+**This fork fixes that issue** by automatically injecting the required `channelId` into the `_dispatch_voice_update` method, allowing your bot to connect and play music flawlessly on Lavalink 4.2.1 and newer!
 
 ### Features
 
+- **Discord DAVE (E2EE) Voice Support (Patched)**
 - Full asynchronous design.
-- Lavalink v4+ Supported with REST API.
-- discord.py v2.0.0+ Support.
+- Lavalink v4.2.1+ Supported with REST API.
+- discord.py v2.0.0+ Support (v2.7.1+ Recommended).
 - Advanced AutoPlay and track recommendations for continuous play.
 - Object orientated design with stateful objects and payloads.
 - Fully annotated and complies with Pyright strict typing.
-
-
-## Getting Started
-
-**See Examples:** [Examples](https://github.com/PythonistaGuild/Wavelink/tree/main/examples)
-
-**Lavalink:** [GitHub](https://github.com/lavalink-devs/Lavalink/releases), [Webpage](https://lavalink.dev)
-
-
-## Documentation
-
-[Official Documentation](https://wavelink.dev/en/latest)
-
-## Support
-
-For support using WaveLink, please join the official [Support Server](https://discord.gg/RAKc3HF) on
-[Discord](https://discordapp.com)
-
-[![Discord Banner](https://discordapp.com/api/guilds/490948346773635102/widget.png?style=banner2)](https://discord.gg/RAKc3HF)
-
 
 ## Installation
 
 **WaveLink 3 requires Python 3.10+**
 
-**Windows**
-
-
-```sh
-py -3.10 -m pip install -U wavelink
-```
-
-**Linux**
+To use this patched version, first, uninstall the original Wavelink library from your environment, then install directly from this repository:
 
 ```sh
-python3.10 -m pip install -U wavelink
-```
+# 1. Uninstall the broken version
+pip uninstall wavelink -y
 
-**Virtual Environments**
-
-```sh
-pip install -U wavelink
-```
-
-
-## Lavalink
-
-Wavelink **3** requires **Lavalink v4**.
-See: [Lavalink](https://github.com/lavalink-devs/Lavalink/releases)
-
-For spotify support, simply install and use [LavaSrc](https://github.com/topi314/LavaSrc) with your `wavelink.Playable`
-
-
-### Notes
-
-- Wavelink **3** is compatible with Lavalink **v4+**.
-- Wavelink has built in support for Lavalink Plugins including LavaSrc and SponsorBlock.
-- Wavelink is fully typed in compliance with Pyright Strict, though some nuances remain between discord.py and wavelink.
+# 2. Install this patched fork
+pip install git+[https://github.com/ken-tulakorn/Wavelink.git](https://github.com/ken-tulakorn/Wavelink.git)
