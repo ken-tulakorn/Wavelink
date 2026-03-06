@@ -45,4 +45,4 @@ To use this patched version, first, uninstall the original Wavelink library from
 pip uninstall wavelink -y
 
 # 2. Install this patched fork
-pip install git+[https://github.com/ken-tulakorn/Wavelink.git](https://github.com/ken-tulakorn/Wavelink.git)
+pip install git+https://github.com/ken-tulakorn/Wavelink.git
