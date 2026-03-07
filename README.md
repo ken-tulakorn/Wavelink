@@ -1,6 +1,6 @@
 # Important:
 
-The original Wavelink library is no longer maintained. **This repository is a patched community fork** designed to keep Wavelink alive by adding support for Discord's DAVE (E2EE) voice update and Lavalink 4.2.1+.
+The original Wavelink library is no longer maintained. **This repository is a patched community fork** designed to keep Wavelink alive by adding support for Discord's DAVE (E2EE) voice update and Lavalink 4.2.2+.
 
 <div align="center">
 
@@ -8,7 +8,7 @@ The original Wavelink library is no longer maintained. **This repository is a pa
 
 ![Python Version](https://img.shields.io/pypi/pyversions/Wavelink)
 [![Github License](https://img.shields.io/github/license/PythonistaGuild/Wavelink)](LICENSE)
-[![Lavalink Version](https://img.shields.io/badge/Lavalink-v4.2.1%2B-blue?color=%23FB7713)](https://lavalink.dev)
+[![Lavalink Version](https://img.shields.io/badge/Lavalink-v4.2.2%2B-blue?color=%23FB7713)](https://lavalink.dev)
 ![Lavalink Plugins](https://img.shields.io/badge/Lavalink_Plugins-Native_Support-blue?color=%2373D673)
 
 </div>
@@ -22,13 +22,13 @@ Since Discord's recent enforcement of the **DAVE (End-to-End Encryption)** voice
 
 `HttpMessageNotReadableException: Field 'channelId' is required... but it was missing`
 
-**This fork fixes that issue** by automatically injecting the required `channelId` into the `_dispatch_voice_update` method, allowing your bot to connect and play music flawlessly on Lavalink 4.2.1 and newer!
+**This fork fixes that issue** by automatically injecting the required `channelId` into the `_dispatch_voice_update` method, allowing your bot to connect and play music flawlessly on Lavalink 4.2.2 and newer!
 
 ### Features
 
 - **Discord DAVE (E2EE) Voice Support (Patched)**
 - Full asynchronous design.
-- Lavalink v4.2.1+ Supported with REST API.
+- Lavalink v4.2.2+ Supported with REST API.
 - discord.py v2.0.0+ Support (v2.7.1+ Recommended).
 - Advanced AutoPlay and track recommendations for continuous play.
 - Object orientated design with stateful objects and payloads.
@@ -45,4 +45,4 @@ To use this patched version, first, uninstall the original Wavelink library from
 pip uninstall wavelink -y
 
 # 2. Install this patched fork
-pip install git+https://github.com/ken-tulakorn/Wavelink.git
+pip install git+[https://github.com/ken-tulakorn/Wavelink.git](https://github.com/ken-tulakorn/Wavelink.git)
